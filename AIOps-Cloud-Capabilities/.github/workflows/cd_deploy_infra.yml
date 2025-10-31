@@ -1,0 +1,67 @@
+name: CD Deploy Multi-Cloud Infrastructure (Terraform)
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'deploy/**' # Trigger only when IaC files change
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  terraform_apply:
+    runs-on: ubuntu-latest
+    env:
+      AWS_REGION: us-east-1
+      AZURE_REGION: eastus
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      # --- 1. Terraform Setup ---
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      # --- 2. AWS Deployment ---
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name:  plan and apply AWS Infrastructure
+        run: |
+          cd deploy/aws
+          terraform init
+          terraform validate
+          terraform plan
+          terraform apply -auto-approve
+        env:
+          TF_VAR_region: ${{ env.AWS_REGION }}
+
+      # --- 3. Azure Deployment ---
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+      - name: plan and apply Azure Infrastructure
+        run: |
+          cd deploy/azure
+          terraform init
+          terraform validate
+          terraform plan
+          terraform apply -auto-approve
+        env:
+          TF_VAR_region: ${{ env.AZURE_REGION }}
+          
+      # --- 4. Kubernetes Deployment ---
+      - name: Deploy Microservices to K8s
+        # In a real scenario, this step configures kubectl 
+        # to connect to the newly provisioned EKS/AKS cluster
+        # and applies the deployment.yaml.
+        run: |
+          echo "Simulating kubectl apply -f deploy/k8s/deployment.yaml"
+          # Example: kubectl apply -f deploy/k8s/deployment.yaml

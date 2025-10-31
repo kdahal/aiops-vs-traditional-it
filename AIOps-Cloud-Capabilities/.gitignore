@@ -1,0 +1,47 @@
+# 1. Project Setup Scripts and Configuration Files
+# Exclude the setup script itself
+init.sh
+
+# 2. Python Environment and Artifacts
+# Virtual environment directory
+venv/
+.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Jupyter / data science notebooks (if used)
+.ipynb_checkpoints
+
+# 3. Operating System Files
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# 4. Terraform and Deployment Artifacts (Critical for CD)
+# Terraform state files (DO NOT commit state!)
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+
+# Terraform plan files
+*.tfplan
+
+# 5. Testing and Coverage
+.coverage
+htmlcov/
+xmlcov/

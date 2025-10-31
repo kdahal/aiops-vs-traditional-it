@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+statsmodels
+matplotlib
+boto3
+azure-monitor-query
+fastapi
+uvicorn
+requests
