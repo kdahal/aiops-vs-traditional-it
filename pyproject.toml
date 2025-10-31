@@ -1,0 +1,20 @@
+# pyproject.toml
+
+# Defines the build system requirements (using Setuptools for standard packaging)
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+# Defines project metadata
+[project]
+name = "aiops-cloud-capabilities"
+version = "0.1.0"
+description = "A comprehensive project demonstrating core AIOps capabilities."
+# Define your dependencies here, or continue using requirements.txt for simplicity
+dependencies = [
+    # Example dependencies (can be kept minimal here if requirements.txt is used)
+]
+
+# Defines where Setuptools should look for Python packages (i.e., your source code)
+[tool.setuptools.packages.find]
+where = ["src"]
