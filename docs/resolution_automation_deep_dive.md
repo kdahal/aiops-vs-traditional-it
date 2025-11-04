@@ -29,7 +29,3 @@ AIOps systems leverage the history of successful resolutions to either suggest t
 The ultimate goal of resolution automation is to create a **self-healing infrastructure** where systems fix known problems automatically, freeing up human experts to focus on complex, novel issues and innovation.
 
 ---
-
-This completes the deep-dive content for all five of your AIOps capabilities. You now have a comprehensive structure and content for your GitHub repository.
-
-Would you like me to provide you with the final, complete Markdown text for the **`README.md`** file, incorporating all five capabilities for easy copy-pasting?
