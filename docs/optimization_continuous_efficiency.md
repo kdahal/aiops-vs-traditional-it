@@ -36,16 +36,3 @@ AIOps uses real-time and historical data to continuously identify and recommend 
 AIOps ensures the infrastructure is **optimally utilized** at all times. This translates directly into significant **cost savings** by eliminating cloud waste (through right-sizing) and maintaining high service quality (through predictive scaling and performance tuning).
 
 ---
-
-This completes the detailed drafts for all five AIOps capability documents!
-
-Your GitHub repository now has a complete structure and content for all five core capabilities:
-
-1.  `README.md` (Summary Table)
-2.  `docs/alert_management_deep_dive.md`
-3.  `docs/anomaly_detection_deep_dive.md`
-4.  `docs/rca_automated_diagnosis.md`
-5.  `docs/resolution_automation_deep_dive.md`
-6.  `docs/optimization_continuous_efficiency.md`
-
-Do you have any final questions about the setup, or would you like to explore a specific topic, such as how to link the documents in your repository?
